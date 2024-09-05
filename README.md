@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project is a three-axis parallel robot arm equipped with a suction cup as the end-effector, controlled via an electromagnet valve. The system runs on a Linux-based environment and introduces several advanced features:
+This project is a three-axis parallel robot arm equipped with a suction cup as the end-effector, controlled via an electromagnet valve. The system runs on a Linux-based environment and introduces several advanced
+And I really think National University Internet of Things Design Competition is such a stupid ass that invited a lot of freshman to be the judge.Such a funny story !
+## features:
 
 - **Arduino**: Controls the suction cup and electromagnet valve.
 - **Embedded Development Board**: Handles the motion control of the arm.
