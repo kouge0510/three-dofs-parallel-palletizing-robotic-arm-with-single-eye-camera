@@ -1,0 +1,11 @@
+{
+	"model_file": "/opt/tros/lib/dnn_node_example/config/best1v5-640.bin",
+	"dnn_Parser": "yolov5",
+	"model_output_count": 5,
+	"class_num": 1,
+	"cls_names_list": "config/coco.list",
+	"strides": [8, 16, 32, 64, 128],
+	"score_threshold": 0.5,
+	"nms_threshold": 0.6,
+	"nms_top_k": 500
+}
