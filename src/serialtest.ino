@@ -1,27 +1,53 @@
 #include<Servo.h>
 #include <Arduino.h>
-#include "CubicSpline.h"
-Servo pump;       //气泵
-Servo diancifa;   //电磁阀
-const int numServos = 10; // 舵机数量
-Servo servos[numServos]; // 舵机对象数组
-int servoPins[numServos] = {0, 1, 2, 3, 4, 5,6,7,8,9}; // 舵机连接引脚....7号引脚坏了，，替换成9号引脚，但是舵机转动角度有问题
-//5和9号舵机角度为40~90度，6和8号舵机角度为90~140度
-const float tf = 3.0; // 时间总长
-const int numPoints = 31; // 样条曲线点的数量 (tf / 0.1 + 1)
-const float updateInterval = 20; // 更新间隔，单位为毫秒
+#include "../include/cubicSpline.hpp"
+
+// @note: Avoid using global variables! Follow C++ best practices for 
+// cleaner, maintainable code.
+// To make servo motor mapping to Arduino pins more dynamic:
+// Consider using a custom C++ struct or class to manage pin 
+// mappings more effectively and flexibly.
+// @note: Write helper functions (e.g., for controlling servo rotation) 
+// in separate files to improve code modularity and readability.
+// Keep the *.ino files minimal by only including the setup() and loop() functions. 
+// All other logic should be in separate C++ files or libraries for
+//  better organization and reusability.
+// Have you considered using ROS for Arduino communication? 
+// ROS (Robot Operating System) can greatly simplify complex robot control tasks, 
+// particularly for larger projects involving multiple nodes and sensors.
+// You may want to explore the rosserial library for Arduino communication: 
+// https://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
+// @note: For simple tasks, like controlling servos to move robot joints, 
+// using ROS may not be necessary. In these cases, direct control in Arduino code is sufficient.
+// However, for more advanced or data-intensive tasks, such as sending/receiving 
+// data from sensors or other ROS nodes, integrating ROS is 
+// highly recommended for scalability, flexibility.
+
+Servo pump;       
+Servo diancifa;  
+const int numServos = 10; 
+Servo servos[numServos]; 
+int servoPins[numServos] = {0, 1, 2, 3, 4, 5,6,7,8,9}; 
+
+
+const float tf = 3.0; 
+const int numPoints = 31; 
+const float updateInterval = 20; 
 float t[numPoints];
 float theta[numPoints];
 
+
 void ServoRotate(float start1, float end1, int j1, float start2 = -1, float end2 = -1, int j2 = -1) {
-  computeCubicSpline(t, theta, start1, end1, tf, numPoints);
+
+  computeCubicSpline<float>(t, theta, start1, end1, tf, numPoints);
+
   float theta2[numPoints];
   if (start2 != -1 && end2 != -1 && j2 != -1) {
     computeCubicSpline(t, theta2, start2, end2, tf, numPoints);
   }
   
   for (int i = 0; i < numPoints; i++) {
-    int servoPos1 = map(theta[i], 0, 180, 0, 180); // 将角度值映射到舵机的范围
+    int servoPos1 = map(theta[i], 0, 180, 0, 180); 
     servos[j1].write(servoPos1);
     
     if (start2 != -1 && end2 != -1 && j2 != -1) {
@@ -31,6 +57,8 @@ void ServoRotate(float start1, float end1, int j1, float start2 = -1, float end2
 
     delay(updateInterval);
   }
+
+  delete[] theta2; // Attention to dynamic memory allocation on the heap !  
 }
 
 
