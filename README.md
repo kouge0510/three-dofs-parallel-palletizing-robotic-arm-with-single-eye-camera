@@ -47,4 +47,3 @@ This simplified version should match your expectations more closely. Let me know
 https://github.com/user-attachments/assets/ff2da048-5606-41ff-be5a-901702e168f5
 
 
-https://projecthub.arduino.cc/LuckyResistor/6ce507f3-291b-4288-be4d-846909615732
