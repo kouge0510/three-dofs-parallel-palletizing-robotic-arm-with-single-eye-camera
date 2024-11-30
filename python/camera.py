@@ -3,9 +3,9 @@ import numpy as np
 from pyzbar import pyzbar
 import threading
 import time
-from send import SerialSender
+from python.send import SerialSender
 import re
-import receive
+import python.receive as receive
 
 # ¶¨ÒåÈ«¾ÖËø£¬ÓÃÓÚ´®¿ÚÍ¨ÐÅµÄÏß³ÌÍ¬²½
 serial_lock = threading.Lock()

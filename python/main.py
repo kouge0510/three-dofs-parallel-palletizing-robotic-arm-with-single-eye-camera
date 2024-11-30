@@ -1,11 +1,11 @@
 import threading
 import time
-from armstart import armstart
-import receive
-import camera
-from warehouse1 import warehouse1
-from warehouse2 import warehouse2
-from send import SerialSender
+from python.armstart import armstart
+import python.receive as receive
+import python.camera as camera
+from python.warehouse1 import warehouse1
+from python.warehouse2 import warehouse2
+from python.send import SerialSender
 lock = threading.Lock()  # ?¡§¨°???3¨¬??
 content = 'NULL'  # 3?¨º??¡¥?¨²¨¨Y
 goal_reached_event = threading.Event()  # ?¡§¨°?¨°???¨º??t¨®?¨®¨² 'goal reached'

@@ -1,7 +1,6 @@
-from send import SerialSender
+from python.send import SerialSender
 import time
 import threading
-# ?¡§¨°?¨¨???¡À¨º??
 
 
 def armstart():
