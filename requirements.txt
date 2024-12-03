@@ -1,0 +1,5 @@
+eigen=3.4.0
+pyserial==3.4
+pyzbar==0.1.9  # you must install zbar first
+Flask
+opencv-python>=4.0
