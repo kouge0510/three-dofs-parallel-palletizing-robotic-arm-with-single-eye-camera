@@ -29,8 +29,8 @@ And I really think National University Internet of Things Design Competition is 
 ## File Structure
 
 - **Arduino File**: Code for controlling the electromagnet valve, located with the `arduino` tag.
-- **ARM File**: Code for controlling the arm's movement, located with the `arm` tag.
-- The system runs on **Linux**, where you can execute the control scripts.
+- **ARM File**: Code for controlling the arm's movement, located with the `Python` tag.
+- The system runs on **Linux**, where you can execute the requirement.txt.
 
 ## Hardware Setup
 
