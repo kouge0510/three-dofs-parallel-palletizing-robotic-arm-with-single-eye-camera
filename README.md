@@ -40,8 +40,8 @@ And I really think National University Internet of Things Design Competition is 
 
 ## Usage
 
-1. Power on the Arduino and the embedded development board.
-2. Run the control script on the Linux system to operate the robot arm.
+1. Power on the Arduino and the embedded development board(recommended RDK X3).
+2. Run the python file "main.py"and "usbtest.py"
 
 
 This simplified version should match your expectations more closely. Let me know if any additional changes are needed!
